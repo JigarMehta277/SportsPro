@@ -1,0 +1,27 @@
+﻿@model List<SportsPro.Models.Technician> 
+
+@{
+    ViewData["Title"] = "Technician List";
+}
+
+<h2>Technician List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var technician in Model)
+        {
+            <tr>
+                <td>@technician.Name</td>
+                <td>@technician.Email</td>
+                <td>@technician.Phone</td>
+            </tr>
+        }
+    </tbody>
+</table>

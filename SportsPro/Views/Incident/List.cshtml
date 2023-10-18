@@ -1,0 +1,37 @@
+﻿@model List<SportsPro.Models.Incident>
+@{
+    ViewData["Title"] = "Incident List";
+}
+
+<h2>Incident List</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date Opened</th>
+            <th>Date Closed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var incident in Model)
+        {
+            <tr>
+                <td>@incident.Title</td>
+                <td>@incident.Description</td>
+                <td>@incident.DateOpened.ToShortDateString()</td>
+                <td>
+                    @if (incident.DateClosed.HasValue)
+                    {
+                        @incident.DateClosed.Value.ToShortDateString()
+                    }
+                    else
+                    {
+                        <span class="text-danger">Open</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
